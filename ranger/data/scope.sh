@@ -75,6 +75,10 @@ handle_extension() {
             odt2txt "${FILE_PATH}" && exit 5
             exit 1;;
 
+        # Microsoft Office                                                                            
+        docx)
+            try docx2txt $path - && { dump | trim; exit 5; } || exit 1;;
+
         # HTML
         htm|html|xhtml)
             # Preview as text conversion
